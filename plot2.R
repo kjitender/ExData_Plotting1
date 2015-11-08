@@ -29,12 +29,11 @@ data$Sub_metering_3 <- as.numeric(as.character(data$Sub_metering_3))
 
 data <- transform(data, timestamp=as.POSIXct(paste(Date, Time)), "%d/%m/%Y %H:%M:%S")
 
-## Plot 1 code
-plot1 <- function() {
-        hist(df$Global_active_power, main = paste("Global Active Power"), col="red", xlab="Global Active Power (kilowatts)")
-        dev.copy(png, file="plot1.png", width=480, height=480)
+## Plot 2 code
+plot2 <- function() {
+        plot(data$timestamp,data$Global_active_power, type="l", xlab="", ylab="Global Active Power (kilowatts)")
+        dev.copy(png, file="plot2.png", width=480, height=480)
         dev.off()
-        cat("Plot1.png saved in", getwd())
+        cat("plot2.png saved in", getwd())
 }
-
-plot1()
+plot2()
